@@ -7,7 +7,7 @@
       "en",
       "fa"
     ],
-    "total": 100
+    "total": 114
   },
   "questions": [
     {
@@ -2809,6 +2809,244 @@
       "correct_en": "36 months or longer",
       "explanation_en": "Traffic convictions and collisions stay on your record for 36 months or longer, depending on the type of conviction. (DUIs stay 10 years.)",
       "explanation_fa": "محکومیت‌های رانندگی و تصادفات بسته به نوع محکومیت، ۳۶ ماه یا بیشتر در سابقه شما می‌مانند. (محکومیت رانندگی در حالت مستی ۱۰ سال می‌ماند.)"
+    },
+    {
+      "id": 101,
+      "topic": "road-signs",
+      "sign": "stop",
+      "source": "Section 4 - Signs, Signals, and Roadway Markings",
+      "question_en": "What must you do when you see this sign?",
+      "question_fa": "وقتی این علامت را می‌بینید چه باید بکنید؟",
+      "answers": [
+        { "en": "Come to a complete stop, then yield before proceeding", "fa": "کاملاً توقف کنید، سپس با رعایت حق تقدم حرکت کنید" },
+        { "en": "Slow down only if other cars are present", "fa": "فقط در صورت وجود ماشین دیگر آهسته کنید" },
+        { "en": "Stop only if a pedestrian is crossing", "fa": "فقط در صورت عبور عابر پیاده توقف کنید" },
+        { "en": "Yield without stopping", "fa": "بدون توقف حق تقدم بدهید" }
+      ],
+      "correct_en": "Come to a complete stop, then yield before proceeding",
+      "explanation_en": "A red octagon is a STOP sign. You must come to a complete stop, yield to cross traffic and pedestrians, and proceed only when it is safe.",
+      "explanation_fa": "هشت‌ضلعی قرمز علامت ایست است. باید کاملاً توقف کنید، به عابران و ترافیک عرضی حق تقدم بدهید و فقط زمانی که امن است حرکت کنید."
+    },
+    {
+      "id": 102,
+      "topic": "road-signs",
+      "sign": "yield",
+      "source": "Section 4 - Signs, Signals, and Roadway Markings",
+      "question_en": "What does this sign mean?",
+      "question_fa": "این علامت به چه معناست؟",
+      "answers": [
+        { "en": "Slow down and let traffic or pedestrians already there go first", "fa": "آهسته کنید و به ترافیک یا عابرانی که قبلاً آنجا هستند حق تقدم بدهید" },
+        { "en": "Come to a complete stop every time", "fa": "هر بار کاملاً توقف کنید" },
+        { "en": "Speed up to merge quickly", "fa": "برای ادغام سریع سرعت را افزایش دهید" },
+        { "en": "No turns allowed here", "fa": "پیچیدن در اینجا ممنوع است" }
+      ],
+      "correct_en": "Slow down and let traffic or pedestrians already there go first",
+      "explanation_en": "A YIELD sign means slow down, and if necessary, stop to let traffic and pedestrians already in or approaching the intersection go first.",
+      "explanation_fa": "علامت YIELD یعنی آهسته کنید و در صورت لزوم توقف کنید تا ترافیک و عابرانی که در تقاطع هستند یا نزدیک می‌شوند اول عبور کنند."
+    },
+    {
+      "id": 103,
+      "topic": "road-signs",
+      "sign": "speedLimit",
+      "source": "Section 4 - Signs, Signals, and Roadway Markings",
+      "question_en": "What does this sign tell you?",
+      "question_fa": "این علامت به شما چه می‌گوید؟",
+      "answers": [
+        { "en": "The fastest speed allowed here under ideal conditions", "fa": "بیشترین سرعت مجاز در شرایط ایده‌آل" },
+        { "en": "The minimum speed required at all times", "fa": "حداقل سرعت الزامی در همه حالات" },
+        { "en": "A suggested speed only, not enforced", "fa": "فقط یک سرعت پیشنهادی که اجرا نمی‌شود" },
+        { "en": "The speed limit for bicycles only", "fa": "محدودیت سرعت فقط برای دوچرخه‌ها" }
+      ],
+      "correct_en": "The fastest speed allowed here under ideal conditions",
+      "explanation_en": "A speed limit sign shows the maximum legal speed under good conditions. You must drive slower when weather, traffic, or road conditions make the posted speed unsafe.",
+      "explanation_fa": "علامت محدودیت سرعت حداکثر سرعت قانونی را در شرایط خوب نشان می‌دهد. اگر آب‌وهوا، ترافیک یا شرایط جاده سرعت اعلام‌شده را ناامن کند، باید آهسته‌تر برانید."
+    },
+    {
+      "id": 104,
+      "topic": "railroad",
+      "sign": "railroad",
+      "source": "Section 4 - Signs, Signals, and Roadway Markings",
+      "question_en": "This round yellow sign warns you that:",
+      "question_fa": "این علامت زرد گرد به شما هشدار می‌دهد که:",
+      "answers": [
+        { "en": "A railroad crossing is ahead", "fa": "گذرگاه راه‌آهن در پیش است" },
+        { "en": "A school zone is ahead", "fa": "منطقه مدرسه در پیش است" },
+        { "en": "The road curves sharply ahead", "fa": "جاده در پیش تند می‌پیچد" },
+        { "en": "A hospital zone is ahead", "fa": "منطقه بیمارستان در پیش است" }
+      ],
+      "correct_en": "A railroad crossing is ahead",
+      "explanation_en": "The round yellow sign with a black X and two R's warns of a railroad crossing ahead. Slow down, look both ways, listen for trains, and never stop on the tracks.",
+      "explanation_fa": "علامت زرد گرد با علامت X سیاه و دو حرف R هشدار گذرگاه راه‌آهن است. آهسته کنید، به دو طرف نگاه کنید، گوش به زنگ قطار باشید و هرگز روی ریل‌ها توقف نکنید."
+    },
+    {
+      "id": 105,
+      "topic": "school-bus",
+      "sign": "schoolCrossing",
+      "source": "Section 4 - Signs, Signals, and Roadway Markings",
+      "question_en": "What should you do when you see this sign?",
+      "question_fa": "وقتی این علامت را می‌بینید چه باید بکنید؟",
+      "answers": [
+        { "en": "Slow down and watch for children crossing near a school", "fa": "آهسته کنید و مراقب عبور کودکان نزدیک مدرسه باشید" },
+        { "en": "Stop only if the school bus lights are flashing", "fa": "فقط در صورت چشمک زدن چراغ‌های اتوبوس مدرسه توقف کنید" },
+        { "en": "Speed up to clear the crosswalk quickly", "fa": "برای عبور سریع از گذرگاه سرعت را افزایش دهید" },
+        { "en": "This sign only applies during summer", "fa": "این علامت فقط در تابستان اعمال می‌شود" }
+      ],
+      "correct_en": "Slow down and watch for children crossing near a school",
+      "explanation_en": "The yellow-green pentagon-shaped sign marks a school zone or school crossing. Slow down and be ready to stop for children, who can be unpredictable near roadways.",
+      "explanation_fa": "علامت پنج‌ضلعی زرد-سبز نشان‌دهنده منطقه یا گذرگاه مدرسه است. آهسته کنید و آماده توقف برای کودکان باشید، زیرا رفتار آنها نزدیک جاده قابل پیش‌بینی نیست."
+    },
+    {
+      "id": 106,
+      "topic": "road-signs",
+      "sign": "doNotEnter",
+      "source": "Section 4 - Signs, Signals, and Roadway Markings",
+      "question_en": "What does this sign mean?",
+      "question_fa": "این علامت به چه معناست؟",
+      "answers": [
+        { "en": "Do not enter this roadway or lane", "fa": "وارد این جاده یا خط نشوید" },
+        { "en": "No parking allowed", "fa": "پارک ممنوع" },
+        { "en": "One-way traffic ahead", "fa": "ترافیک یک‌طرفه در پیش" },
+        { "en": "Road closed for construction only", "fa": "جاده فقط برای ساخت‌وساز بسته است" }
+      ],
+      "correct_en": "Do not enter this roadway or lane",
+      "explanation_en": "A red circle with a white bar means DO NOT ENTER. It is often posted at freeway off-ramps or one-way streets to prevent wrong-way driving.",
+      "explanation_fa": "دایره قرمز با نوار سفید یعنی ورود ممنوع. این علامت اغلب در خروجی بزرگراه یا خیابان‌های یک‌طرفه نصب می‌شود تا از رانندگی در جهت اشتباه جلوگیری کند."
+    },
+    {
+      "id": 107,
+      "topic": "road-signs",
+      "sign": "oneWay",
+      "source": "Section 4 - Signs, Signals, and Roadway Markings",
+      "question_en": "What does this sign indicate?",
+      "question_fa": "این علامت چه چیزی را نشان می‌دهد؟",
+      "answers": [
+        { "en": "Traffic on this street only moves in the direction of the arrow", "fa": "ترافیک این خیابان فقط در جهت فلش حرکت می‌کند" },
+        { "en": "Traffic moves in both directions", "fa": "ترافیک در هر دو جهت حرکت می‌کند" },
+        { "en": "U-turns are encouraged here", "fa": "دور زدن در اینجا توصیه می‌شود" },
+        { "en": "This is a dead-end street", "fa": "این خیابان بن‌بست است" }
+      ],
+      "correct_en": "Traffic on this street only moves in the direction of the arrow",
+      "explanation_en": "A ONE WAY sign means all traffic on that street travels only in the direction the arrow points. Do not enter or turn against the arrow.",
+      "explanation_fa": "علامت یک‌طرفه یعنی تمام ترافیک آن خیابان فقط در جهت فلش حرکت می‌کند. در خلاف جهت فلش وارد یا پیچ نزنید."
+    },
+    {
+      "id": 108,
+      "topic": "road-signs",
+      "sign": "noUTurn",
+      "source": "Section 4 - Signs, Signals, and Roadway Markings",
+      "question_en": "What does this sign prohibit?",
+      "question_fa": "این علامت چه کاری را ممنوع می‌کند؟",
+      "answers": [
+        { "en": "Making a U-turn at this location", "fa": "دور زدن در این محل" },
+        { "en": "Turning right at this location", "fa": "پیچیدن به راست در این محل" },
+        { "en": "Passing other vehicles", "fa": "سبقت گرفتن از سایر خودروها" },
+        { "en": "Parking at this location", "fa": "پارک کردن در این محل" }
+      ],
+      "correct_en": "Making a U-turn at this location",
+      "explanation_en": "A U-turn arrow with a red slash through it means U-turns are prohibited at that location, often because visibility is limited or it would block traffic.",
+      "explanation_fa": "فلش دور زدن با خط قرمز روی آن یعنی دور زدن در آن محل ممنوع است، معمولاً به دلیل دید محدود یا مسدود شدن ترافیک."
+    },
+    {
+      "id": 109,
+      "topic": "merging",
+      "sign": "merge",
+      "source": "Section 4 - Signs, Signals, and Roadway Markings",
+      "question_en": "What does this sign warn you about?",
+      "question_fa": "این علامت درباره چه چیزی هشدار می‌دهد؟",
+      "answers": [
+        { "en": "A lane from another road is merging ahead", "fa": "یک خط از جاده دیگری در پیش رو ادغام می‌شود" },
+        { "en": "The road ends ahead", "fa": "جاده در پیش تمام می‌شود" },
+        { "en": "A traffic signal is ahead", "fa": "چراغ راهنمایی در پیش است" },
+        { "en": "A steep hill is ahead", "fa": "سرازیری تند در پیش است" }
+      ],
+      "correct_en": "A lane from another road is merging ahead",
+      "explanation_en": "A merge sign warns that traffic from another road will be joining your roadway ahead. Be ready to adjust your speed or position to let merging vehicles in safely.",
+      "explanation_fa": "علامت ادغام هشدار می‌دهد که ترافیک از جاده دیگری در پیش به جاده شما می‌پیوندد. آماده باشید سرعت یا موقعیت خود را تنظیم کنید تا خودروهای ادغام‌شونده با امنیت وارد شوند."
+    },
+    {
+      "id": 110,
+      "topic": "pedestrians",
+      "sign": "pedestrianCrossing",
+      "source": "Section 4 - Signs, Signals, and Roadway Markings",
+      "question_en": "What does this sign warn you about?",
+      "question_fa": "این علامت درباره چه چیزی هشدار می‌دهد؟",
+      "answers": [
+        { "en": "A pedestrian crossing is ahead", "fa": "گذرگاه عابر پیاده در پیش است" },
+        { "en": "A bicycle lane begins ahead", "fa": "خط دوچرخه در پیش شروع می‌شود" },
+        { "en": "A playground with no road access", "fa": "زمین بازی بدون دسترسی جاده‌ای" },
+        { "en": "A hospital entrance is ahead", "fa": "ورودی بیمارستان در پیش است" }
+      ],
+      "correct_en": "A pedestrian crossing is ahead",
+      "explanation_en": "This sign warns that people may be crossing the road ahead. Slow down and be prepared to stop and yield to pedestrians in or entering the crosswalk.",
+      "explanation_fa": "این علامت هشدار می‌دهد که ممکن است افراد در پیش از جاده عبور کنند. آهسته کنید و آماده توقف و دادن حق تقدم به عابران در گذرگاه باشید."
+    },
+    {
+      "id": 111,
+      "topic": "weather",
+      "sign": "slippery",
+      "source": "Section 4 - Signs, Signals, and Roadway Markings",
+      "question_en": "What does this sign warn about?",
+      "question_fa": "این علامت درباره چه چیزی هشدار می‌دهد؟",
+      "answers": [
+        { "en": "The road may be slippery when wet", "fa": "جاده ممکن است هنگام خیس شدن لغزنده باشد" },
+        { "en": "The road is closed to all traffic", "fa": "جاده به روی همه ترافیک بسته است" },
+        { "en": "A car wash is ahead", "fa": "کارواش در پیش است" },
+        { "en": "Flooding is guaranteed year-round", "fa": "سیل تمام سال تضمین شده است" }
+      ],
+      "correct_en": "The road may be slippery when wet",
+      "explanation_en": "This sign warns that the roadway can become slippery in wet conditions, reducing tire traction. Slow down and increase following distance in rain.",
+      "explanation_fa": "این علامت هشدار می‌دهد که جاده در شرایط خیس ممکن است لغزنده شود و چسبندگی لاستیک کاهش یابد. در باران آهسته‌تر برانید و فاصله بیشتری بگیرید."
+    },
+    {
+      "id": 112,
+      "topic": "road-signs",
+      "sign": "windingRoad",
+      "source": "Section 4 - Signs, Signals, and Roadway Markings",
+      "question_en": "What does this sign warn you about?",
+      "question_fa": "این علامت درباره چه چیزی هشدار می‌دهد؟",
+      "answers": [
+        { "en": "A winding road with a series of curves ahead", "fa": "جاده پیچ‌دار با چند پیچ متوالی در پیش" },
+        { "en": "A single sharp curve, then a straight road", "fa": "فقط یک پیچ تند و سپس جاده مستقیم" },
+        { "en": "The freeway ends ahead", "fa": "بزرگراه در پیش تمام می‌شود" },
+        { "en": "A four-way stop is ahead", "fa": "چهارراه ایست در پیش است" }
+      ],
+      "correct_en": "A winding road with a series of curves ahead",
+      "explanation_en": "This sign warns of a winding road with several curves ahead. Reduce your speed and stay alert for the changing direction of the road.",
+      "explanation_fa": "این علامت هشدار جاده پیچ‌دار با چند پیچ متوالی در پیش را می‌دهد. سرعت خود را کاهش دهید و مراقب تغییر جهت جاده باشید."
+    },
+    {
+      "id": 113,
+      "topic": "parking",
+      "sign": "noParking",
+      "source": "Section 4 - Signs, Signals, and Roadway Markings",
+      "question_en": "What does this sign mean?",
+      "question_fa": "این علامت به چه معناست؟",
+      "answers": [
+        { "en": "Parking is not allowed in this area", "fa": "پارک کردن در این منطقه مجاز نیست" },
+        { "en": "Parking is free in this area", "fa": "پارک در این منطقه رایگان است" },
+        { "en": "Only permit holders may drive here", "fa": "فقط دارندگان مجوز می‌توانند اینجا رانندگی کنند" },
+        { "en": "This area is reserved for buses only", "fa": "این منطقه فقط برای اتوبوس‌ها رزرو است" }
+      ],
+      "correct_en": "Parking is not allowed in this area",
+      "explanation_en": "A P with a red circle and slash through it means parking is prohibited in that area. Read any additional text or time restrictions posted with the sign.",
+      "explanation_fa": "حرف P با دایره قرمز و خط روی آن یعنی پارک در آن منطقه ممنوع است. متن یا محدودیت‌های زمانی اضافی نصب‌شده با علامت را بخوانید."
+    },
+    {
+      "id": 114,
+      "topic": "sharing-road",
+      "sign": "deerCrossing",
+      "source": "Section 4 - Signs, Signals, and Roadway Markings",
+      "question_en": "What does this sign warn you about?",
+      "question_fa": "این علامت درباره چه چیزی هشدار می‌دهد؟",
+      "answers": [
+        { "en": "Deer may cross the road in this area", "fa": "ممکن است گوزن‌ها در این منطقه از جاده عبور کنند" },
+        { "en": "A petting zoo is ahead", "fa": "باغ‌وحش دست‌ورزی در پیش است" },
+        { "en": "Livestock crossing is closed permanently", "fa": "عبور دام برای همیشه بسته شده است" },
+        { "en": "Hunting is allowed on the roadway", "fa": "شکار در جاده مجاز است" }
+      ],
+      "correct_en": "Deer may cross the road in this area",
+      "explanation_en": "This sign warns that deer or other animals may cross the road in this area, especially at dawn and dusk. Slow down and scan the road edges.",
+      "explanation_fa": "این علامت هشدار می‌دهد که ممکن است گوزن یا حیوانات دیگر در این منطقه از جاده عبور کنند، به‌ویژه در سپیده‌دم و غروب. آهسته کنید و کناره‌های جاده را بررسی کنید."
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "name": "DMV Practice Quiz",
   "short_name": "DMV Quiz",
-  "description": "AI-powered California DMV practice test in English, Farsi, and Pashto",
+  "description": "Verified California DMV practice test in English and Farsi",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

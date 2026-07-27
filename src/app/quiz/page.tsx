@@ -3,8 +3,9 @@
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { track } from '@vercel/analytics';
-// Import the static question bank (100 verified questions). Bundled at build time = no API, no waiting.
+// Import the static question bank (114 verified questions, incl. road-sign recognition). Bundled at build time = no API, no waiting.
 import questionsData from "../data/questions.json";
+import RoadSign, { SignType } from "../components/RoadSign";
 
 // Shape of a single answer: it holds both English and Farsi text.
 interface Answer {
@@ -17,6 +18,7 @@ interface Question {
   id: number
   topic: string
   source: string
+  sign?: SignType
   question_en: string
   question_fa: string
   answers: Answer[]
@@ -115,16 +117,6 @@ function QuizInner() {
       quizComplete: 'آزمون تمام شد!',
       tryAgain: 'دوباره امتحان کنید',
       questionOf: 'از ۴۶',
-    },
-    ps: {
-      title: ' DMV د جواز ازموینه',
-      loading: 'ستاسو ازموینه بارېږي...',
-      correct: '✅ سمه ده!',
-      wrong: '❌ غلطه ده!',
-      nextQuestion: 'بله پوښتنه ←',
-      quizComplete: 'ازموینه بشپړه شوه!',
-      tryAgain: 'بیا هڅه وکړئ',
-      questionOf: 'له ۴۶ څخه',
     }
   }
 
@@ -222,23 +214,23 @@ function QuizInner() {
 
   // Loading screen.
   if (loading) return (
-    <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-center">
+    <main className="min-h-screen bg-linear-to-b from-blue-50 to-white flex flex-col items-center justify-center px-4">
       <div className="text-center">
-        <div className="text-6xl mb-6">🚗</div>
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">{t.loading}</h2>
+        <div className="text-6xl mb-6 animate-bounce">🚗</div>
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">{t.loading}</h2>
       </div>
     </main>
   )
 
   // Results screen.
   if (isFinished) return (
-    <main className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+    <main className="min-h-screen bg-linear-to-b from-blue-50 to-gray-100 flex flex-col items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-xl max-w-sm w-full overflow-hidden">
 
         {/* Blue header */}
-        <div className="bg-blue-600 px-6 py-5">
+        <div className="bg-linear-to-r from-blue-600 to-blue-500 px-6 py-5">
           <p className="text-blue-200 text-sm font-medium">Session Complete</p>
-          <h1 className="text-white text-2xl font-bold">{t.quizComplete}</h1>
+          <h1 className="text-white text-xl sm:text-2xl font-bold">{t.quizComplete}</h1>
         </div>
 
         {/* Score circle */}
@@ -292,7 +284,8 @@ function QuizInner() {
         <div className="px-6 pb-6">
           <button
             onClick={restartQuiz}
-            className="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors"
+            className="w-full bg-linear-to-r from-blue-500 to-blue-600 text-white py-4 rounded-xl font-bold text-lg
+              shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 transition-all duration-200"
           >
             {t.tryAgain}
           </button>
@@ -304,29 +297,34 @@ function QuizInner() {
 
   // Main quiz screen.
   return (
-    <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
-      <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl w-full">
+    <main className="min-h-screen bg-linear-to-b from-blue-50 to-gray-50 flex flex-col items-center justify-center p-3 sm:p-4">
+      <div className="bg-white rounded-2xl shadow-xl p-5 sm:p-8 max-w-2xl w-full">
 
         {/* Header with progress count */}
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold text-gray-800">{t.title}</h1>
-          <span className="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+        <div className="flex justify-between items-center mb-4 gap-2">
+          <h1 className="text-lg sm:text-2xl font-bold text-gray-800">{t.title}</h1>
+          <span className="text-xs sm:text-sm font-semibold text-blue-700 bg-blue-50 px-3 py-1 rounded-full whitespace-nowrap">
             {questionCount + 1} {t.questionOf}
           </span>
         </div>
 
         {/* Progress bar */}
-        <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
-          <div className="bg-blue-600 h-2 rounded-full transition-all"
+        <div className="w-full bg-gray-100 rounded-full h-2 mb-6 overflow-hidden">
+          <div className="bg-linear-to-r from-blue-500 to-blue-600 h-2 rounded-full transition-all duration-300"
             style={{ width: `${((questionCount + 1) / 46) * 100}%` }}>
           </div>
         </div>
 
+        {/* Road sign illustration, shown only for sign-recognition questions */}
+        {currentQuestion?.sign && (
+          <RoadSign type={currentQuestion.sign} className="w-40 h-40 sm:w-48 sm:h-48 mx-auto mb-5" />
+        )}
+
         {/* Question in English */}
-        <p className="text-lg font-medium text-gray-900 mb-2">{currentQuestion?.question_en}</p>
+        <p className="text-base sm:text-lg font-medium text-gray-900 mb-2 leading-snug">{currentQuestion?.question_en}</p>
 
         {/* Question in Farsi, right-to-left so it reads correctly */}
-        <p className="text-lg font-medium text-gray-700 mb-6 text-right" dir="rtl">{currentQuestion?.question_fa}</p>
+        <p className="text-base sm:text-lg font-medium text-gray-700 mb-6 text-right leading-snug" dir="rtl">{currentQuestion?.question_fa}</p>
 
         <div className="flex flex-col gap-3 w-full">
           {/* Loop over the four answers. Each has both en and fa. */}
@@ -337,7 +335,7 @@ function QuizInner() {
               onClick={() => handleAnswer(answer.en)}
               // Disable all buttons once an answer is picked.
               disabled={selected !== null}
-              className={`w-full p-3 rounded-xl text-left font-medium transition-colors border shadow-sm flex items-center gap-3
+              className={`w-full p-3 sm:p-4 rounded-xl text-left font-medium transition-colors border shadow-sm flex items-center gap-3 active:scale-[0.99]
                 ${selected === null ? 'border-gray-100 hover:border-blue-300 hover:bg-blue-50'
                   : answer.en === currentQuestion.correct_en
                   ? 'border-green-500 bg-green-50 text-green-700'
@@ -347,7 +345,7 @@ function QuizInner() {
                 }`}
             >
               {/* Letter label A B C D */}
-              <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0
+              <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0
                 ${selected === null ? 'bg-gray-100 text-gray-600'
                   : answer.en === currentQuestion.correct_en ? 'bg-green-500 text-white'
                   : selected === answer.en ? 'bg-red-500 text-white'
@@ -357,7 +355,7 @@ function QuizInner() {
               </span>
 
               {/* Both languages stacked for each answer */}
-              <span className="flex flex-col">
+              <span className="flex flex-col text-sm sm:text-base">
                 <span>{answer.en}</span>
                 <span dir="rtl" className="text-gray-600">{answer.fa}</span>
               </span>
@@ -366,16 +364,17 @@ function QuizInner() {
 
           {/* Result + explanation, shown after answering */}
           {selected && (
-            <div className="mt-6 p-4 rounded-lg bg-gray-50 border border-gray-200">
+            <div className="mt-4 p-4 rounded-xl bg-blue-50/60 border border-blue-100">
               {/* Correct or wrong message */}
               <p className="font-bold text-lg mb-2">{isCorrect ? t.correct : t.wrong}</p>
               {/* Explanation in English */}
-              <p className="text-gray-600 mb-1">{currentQuestion?.explanation_en}</p>
+              <p className="text-gray-600 mb-1 text-sm sm:text-base">{currentQuestion?.explanation_en}</p>
               {/* Explanation in Farsi, right-to-left */}
-              <p className="text-gray-600 mb-4 text-right" dir="rtl">{currentQuestion?.explanation_fa}</p>
+              <p className="text-gray-600 mb-4 text-right text-sm sm:text-base" dir="rtl">{currentQuestion?.explanation_fa}</p>
               {/* Move to the next already-loaded question (instant) */}
               <button onClick={goToNext}
-                className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors">{t.nextQuestion}</button>
+                className="w-full sm:w-auto bg-linear-to-r from-blue-500 to-blue-600 text-white px-6 py-3 sm:py-2 rounded-lg font-semibold
+                  shadow-md shadow-blue-500/30 hover:shadow-lg hover:shadow-blue-500/40 hover:-translate-y-0.5 transition-all duration-200">{t.nextQuestion}</button>
             </div>
           )}
         </div>
@@ -387,9 +386,9 @@ function QuizInner() {
 export default function Quiz() {
   return (
     <Suspense fallback={
-      <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-center">
+      <main className="min-h-screen bg-linear-to-b from-blue-50 to-white flex flex-col items-center justify-center">
         <div className="text-center">
-          <div className="text-6xl mb-6">🚗</div>
+          <div className="text-6xl mb-6 animate-bounce">🚗</div>
           <h2 className="text-2xl font-bold text-gray-800">Loading...</h2>
         </div>
       </main>

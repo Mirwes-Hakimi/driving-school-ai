@@ -8,19 +8,43 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-   
-  
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Entrance animation for hero/section content. Staggered via inline animation-delay. */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Gentle floating motion for decorative road-sign illustrations. Rotation is baked
+   into the keyframe (not a separate rotate-* utility) so it survives the animation's
+   own transform instead of being overwritten by it. */
+@keyframes float-pos {
+  0%, 100% { transform: translateY(0) rotate(6deg); }
+  50% { transform: translateY(-12px) rotate(6deg); }
+}
+@keyframes float-neg {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(-12px) rotate(-6deg); }
+}
+.animate-float-pos { animation: float-pos 6s ease-in-out infinite; }
+.animate-float-neg { animation: float-neg 6s ease-in-out infinite 0.5s; }
+
+/* Faint dotted grid used behind the hero for texture. */
+.bg-grid-pattern {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.14) 1px, transparent 1px);
+  background-size: 24px 24px;
 }

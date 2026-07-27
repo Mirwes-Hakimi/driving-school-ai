@@ -1,3 +1,4 @@
+import RoadSign from "./components/RoadSign"
 
 export default function Home() {
 
@@ -5,76 +6,133 @@ export default function Home() {
     <main className="min-h-screen bg-gray-50">
 
       {/* ===== Hero section ===== */}
-      <section className="flex flex-col items-center justify-center text-center px-4 py-24">
+      <section className="relative overflow-hidden bg-linear-to-br from-slate-900 via-blue-950 to-indigo-950 px-4 py-20 sm:py-28">
 
-        {/* Top badge. Updated from "AI-Powered" since questions now come from a verified handbook-based bank. */}
-        <div className="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-medium mb-6">
-          Verified • Free • California DMV
+        {/* Decorative background texture + glow blobs */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-40" />
+        <div className="absolute -top-24 -left-20 w-72 h-72 bg-blue-500/30 rounded-full blur-3xl" />
+        <div className="absolute -bottom-32 -right-16 w-96 h-96 bg-indigo-500/30 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 right-1/4 w-56 h-56 bg-emerald-500/10 rounded-full blur-3xl" />
+
+        {/* Floating road-sign illustrations — decorative, tied to the road-sign quiz feature */}
+        <div className="hidden lg:block absolute top-16 right-[10%] w-28 h-28 animate-float-pos drop-shadow-2xl">
+          <RoadSign type="yield" />
+        </div>
+        <div className="hidden lg:block absolute bottom-12 left-[8%] w-28 h-28 animate-float-neg drop-shadow-2xl">
+          <RoadSign type="stop" />
         </div>
 
-        {/* Main headline */}
-        <h1 className="text-5xl font-bold text-gray-900 mb-6 max-w-2xl leading-tight">
-          Pass Your Permit DMV Test on the <span className="text-blue-600">First Try</span>
-        </h1>
+        <div className="relative max-w-3xl mx-auto text-center">
 
-        {/* Subtext. Updated to reflect the real value: questions verified against the official handbook, in English and Farsi. */}
-        <p className="text-xl text-gray-500 mb-10 max-w-xl">
-          Practice with questions verified against the official California Driver&apos;s Handbook, in English and Farsi. Every quiz pulls from a fresh set.
-        </p>
-
-        {/* ===== Language selector ===== */}
-        <div className="flex flex-col items-center gap-4">
-          <p className="text-gray-500 font-medium">Select your language:</p>
-
-          {/* Two buttons now (Pashto removed, since the question bank is English + Farsi only) */}
-          <div className="flex flex-col sm:flex-row gap-3">
-
-           
-
-            {/* Farsi / Dari start button */}
-            <a href="/quiz?lang=fa"
-              className="bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-green-700 transition-colors shadow-lg text-center">
-              Start شروع             </a>
-
+          {/* Top badge */}
+          <div className="animate-fade-up inline-flex items-center gap-2 bg-white/10 text-blue-100 border border-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-medium mb-7">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            Verified • Free • California DMV
           </div>
 
-          {/* Small reassurance line under the buttons */}
-          <p className="text-gray-400 text-sm mt-2">
-            No signup required • 100 questions • Instant results
+          {/* Main headline */}
+          <h1 className="animate-fade-up text-4xl sm:text-6xl font-extrabold text-white mb-6 leading-[1.1] tracking-tight"
+            style={{ animationDelay: '0.08s' }}>
+            Pass Your Permit Test on the{" "}
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-cyan-300 to-emerald-300">
+              First Try
+            </span>
+          </h1>
+
+          {/* Subtext */}
+          <p className="animate-fade-up text-base sm:text-xl text-blue-100/80 mb-2 max-w-xl mx-auto"
+            style={{ animationDelay: '0.16s' }}>
+            Practice with questions verified against the official California Driver&apos;s Handbook,
+            including road-sign recognition, in English and Farsi.
           </p>
+          <p className="animate-fade-up text-sm sm:text-lg text-blue-100/60 mb-10 max-w-xl mx-auto text-center"
+            dir="rtl" style={{ animationDelay: '0.2s' }}>
+            با سؤالاتی که مطابق با کتابچه راهنمای رسمی رانندگان کالیفرنیا تأیید شده‌اند، از جمله تشخیص علائم
+            راهنمایی، به زبان انگلیسی و فارسی تمرین کنید.
+          </p>
+
+          {/* ===== Language selector ===== */}
+          <div className="animate-fade-up flex flex-col items-center gap-4 w-full" style={{ animationDelay: '0.24s' }}>
+            <div className="flex flex-col sm:flex-row gap-3 w-full max-w-xs sm:max-w-none sm:w-auto">
+
+              {/* English start button */}
+              <a href="/quiz?lang=en"
+                className="group bg-linear-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg
+                  shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5
+                  transition-all duration-200 text-center">
+                Start in English <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              </a>
+
+              {/* Farsi / Dari start button */}
+              <a href="/quiz?lang=fa"
+                className="group bg-linear-to-r from-emerald-500 to-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-lg
+                  shadow-lg shadow-emerald-500/30 hover:shadow-xl hover:shadow-emerald-500/40 hover:-translate-y-0.5
+                  transition-all duration-200 text-center">
+                شروع به فارسی
+              </a>
+
+            </div>
+
+            {/* Stat strip */}
+            <div className="mt-8 grid grid-cols-4 gap-3 sm:gap-10 w-full max-w-md border-t border-white/10 pt-6">
+              <div>
+                <p className="text-xl sm:text-3xl font-bold text-white">114</p>
+                <p className="text-[11px] sm:text-sm text-blue-200/70">Questions</p>
+              </div>
+              <div>
+                <p className="text-xl sm:text-3xl font-bold text-white">14</p>
+                <p className="text-[11px] sm:text-sm text-blue-200/70">Road Signs</p>
+              </div>
+              <div>
+                <p className="text-xl sm:text-3xl font-bold text-white">2</p>
+                <p className="text-[11px] sm:text-sm text-blue-200/70">Languages</p>
+              </div>
+              <div>
+                <p className="text-xl sm:text-3xl font-bold text-white">$0</p>
+                <p className="text-[11px] sm:text-sm text-blue-200/70">Always Free</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ===== Features Section ===== */}
-      <section className="bg-white py-20 px-4">
-        <div className="max-w-4xl mx-auto">
+      <section className="bg-white py-16 sm:py-24 px-4">
+        <div className="max-w-5xl mx-auto">
 
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-4">
             Why Use This App?
           </h2>
-          <p className="text-center text-gray-500 mb-12">Everything you need to pass your DMV written test</p>
+          <p className="text-center text-gray-500 mb-10 sm:mb-14">Everything you need to pass your DMV written test</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6">
 
-            {/* Feature 1. Updated from "AI Generated" to the verified-handbook message, which is now accurate and a stronger selling point. */}
-            <div className="text-center p-6 rounded-xl border border-gray-100 shadow-sm">
-              <div className="text-4xl mb-4">✅</div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Verified Questions</h3>
-              <p className="text-gray-500">Every question is grounded in the official California Driver&apos;s Handbook, so you study the real rules.</p>
+            {/* Feature 1 */}
+            <div className="group text-center p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-200">
+              <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-blue-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">✅</div>
+              <h3 className="text-lg font-bold text-gray-800 mb-2">Verified Questions</h3>
+              <p className="text-gray-500 text-sm">Every question is grounded in the official California Driver&apos;s Handbook, so you study the real rules.</p>
             </div>
 
             {/* Feature 2 */}
-            <div className="text-center p-6 rounded-xl border border-gray-100 shadow-sm">
-              <div className="text-4xl mb-4">📊</div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Track Progress</h3>
-              <p className="text-gray-500">See your score after every quiz and know exactly if you are ready for the real test.</p>
+            <div className="group text-center p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-200">
+              <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-amber-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">🚸</div>
+              <h3 className="text-lg font-bold text-gray-800 mb-2">Road Sign Recognition</h3>
+              <p className="text-gray-500 text-sm">Practice identifying real road signs, not just reading rules — a key part of the actual DMV test.</p>
             </div>
 
             {/* Feature 3 */}
-            <div className="text-center p-6 rounded-xl border border-gray-100 shadow-sm">
-              <div className="text-4xl mb-4">🌍</div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Bilingual</h3>
-              <p className="text-gray-500">Every question shown in English and Farsi, serving the California community.</p>
+            <div className="group text-center p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-200">
+              <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-emerald-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">📊</div>
+              <h3 className="text-lg font-bold text-gray-800 mb-2">Track Progress</h3>
+              <p className="text-gray-500 text-sm">See your score after every quiz and know exactly if you are ready for the real test.</p>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="group text-center p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-200">
+              <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-violet-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">🌍</div>
+              <h3 className="text-lg font-bold text-gray-800 mb-2">Bilingual</h3>
+              <p className="text-gray-500 text-sm">Every question shown in English and Farsi, serving the California community.</p>
             </div>
 
           </div>
@@ -82,35 +140,38 @@ export default function Home() {
       </section>
 
       {/* ===== How It Works Section ===== */}
-      <section className="bg-gray-50 py-20 px-4">
+      <section className="bg-linear-to-b from-gray-50 to-blue-50 py-16 sm:py-24 px-4">
         <div className="max-w-4xl mx-auto">
 
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-4">
             How It Works
           </h2>
-          <p className="text-center text-gray-500 mb-12">
+          <p className="text-center text-gray-500 mb-12 sm:mb-16">
             Ready to practice in under 30 seconds
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+
+            {/* Connecting line, desktop only */}
+            <div className="hidden md:block absolute top-6 left-[16.6%] right-[16.6%] h-0.5 bg-linear-to-r from-blue-300 via-blue-400 to-blue-300" />
 
             {/* Step 1 */}
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+            <div className="relative text-center">
+              <div className="w-12 h-12 bg-linear-to-br from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 shadow-lg shadow-blue-500/30 relative z-10">1</div>
               <h3 className="text-xl font-bold text-gray-800 mb-2">Click Start</h3>
               <p className="text-gray-500">No signup, no account needed. Just click and start practicing instantly.</p>
             </div>
 
-            {/* Step 2. Updated wording: no longer "AI generates", now it's a fixed verified set. */}
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+            {/* Step 2 */}
+            <div className="relative text-center">
+              <div className="w-12 h-12 bg-linear-to-br from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 shadow-lg shadow-blue-500/30 relative z-10">2</div>
               <h3 className="text-xl font-bold text-gray-800 mb-2">Answer Questions</h3>
-              <p className="text-gray-500">Work through 100 DMV questions in English and Farsi. Get instant feedback on every answer.</p>
+              <p className="text-gray-500">Work through DMV questions and road signs in English and Farsi. Get instant feedback on every answer.</p>
             </div>
 
             {/* Step 3 */}
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+            <div className="relative text-center">
+              <div className="w-12 h-12 bg-linear-to-br from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 shadow-lg shadow-blue-500/30 relative z-10">3</div>
               <h3 className="text-xl font-bold text-gray-800 mb-2">See Your Score</h3>
               <p className="text-gray-500">Get your results instantly. Pass or fail, then practice again with a fresh set.</p>
             </div>
