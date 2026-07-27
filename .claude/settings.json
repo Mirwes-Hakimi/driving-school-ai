@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node crop.mjs page_7.png 0 1750 3168 350 strip_railroad.png)"
+    ]
+  }
+}
