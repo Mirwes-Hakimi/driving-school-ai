@@ -21,9 +21,6 @@ export default function RootLayout({ children }:
 
         {/* iPhone home screen icon */}
         <link rel="apple-touch-icon" href="/icon-192.png" />
-
-        {/* Browser tab favicon — your DMV logo */}
-        <link rel="icon" href="/icon-192.png" type="image/png" />
       </head>
       <body suppressHydrationWarning>
         <Navbar />
